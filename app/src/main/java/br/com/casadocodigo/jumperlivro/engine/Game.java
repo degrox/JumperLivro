@@ -11,6 +11,7 @@ import android.view.View;
 
 import br.com.casadocodigo.jumperlivro.R;
 import br.com.casadocodigo.jumperlivro.elementos.Cano;
+import br.com.casadocodigo.jumperlivro.elementos.Canos;
 import br.com.casadocodigo.jumperlivro.elementos.Passaro;
 
 /**
@@ -18,6 +19,7 @@ import br.com.casadocodigo.jumperlivro.elementos.Passaro;
  */
 public class Game extends SurfaceView implements Runnable, View.OnTouchListener {
 
+    private Canos canos;
     private Bitmap background;
     private Tela tela;
     private Passaro passaro;
@@ -46,25 +48,29 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         inicializaElementos();
     }
     private void inicializaElementos(){
-        this.cano = new Cano(this.tela,200);
+
         Bitmap back = BitmapFactory.decodeResource(getResources(),R.drawable.background );
         this.background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
 
-        //this.background =BitmapFactory.decodeResource(getResources(), R.drawable.background); desenhava o background no formato original
 
         //inicialização do passaro.
         this.passaro = new Passaro();
+        this.canos = new Canos(this.tela);
     }
     public void run() {
         while (this.estaRodando) {
             if(!this.holder.getSurface().isValid()) continue;
             Canvas canvas = this.holder.lockCanvas();
-            canvas.drawBitmap(this.background,0,0, null);
+            canvas.drawBitmap(this.background, 0, 0, null);
             //código de desenho do pássaro.
             this.passaro.desenhaNo(canvas);
             this.passaro.cai();
             //Aqui vamos desenhas os elementos do jogo
-            this.cano.desenhaNo(canvas);
+            //this.cano.desenhaNo(canvas);
+            this.canos.desenhaNo(canvas);
+            //this.cano.move();
+            this.canos.move();
+
 
             this.holder.unlockCanvasAndPost(canvas);
         }
