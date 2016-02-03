@@ -10,6 +10,7 @@ import android.view.SurfaceView;
 import android.view.View;
 
 import br.com.casadocodigo.jumperlivro.R;
+import br.com.casadocodigo.jumperlivro.elementos.Cano;
 import br.com.casadocodigo.jumperlivro.elementos.Passaro;
 
 /**
@@ -20,10 +21,12 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     private Bitmap background;
     private Tela tela;
     private Passaro passaro;
+    private Cano cano;
     private final SurfaceHolder holder = getHolder();
     private boolean estaRodando = true;
 
     public boolean onTouch(View v, MotionEvent event){
+        this.passaro.pula();
         return false;
 
     }
@@ -40,10 +43,10 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         super(context);
         setOnTouchListener(this);
         this.tela = new Tela(context);
-
         inicializaElementos();
     }
     private void inicializaElementos(){
+        this.cano = new Cano(this.tela,200);
         Bitmap back = BitmapFactory.decodeResource(getResources(),R.drawable.background );
         this.background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
 
@@ -61,6 +64,8 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             this.passaro.desenhaNo(canvas);
             this.passaro.cai();
             //Aqui vamos desenhas os elementos do jogo
+            this.cano.desenhaNo(canvas);
+
             this.holder.unlockCanvasAndPost(canvas);
         }
     }
