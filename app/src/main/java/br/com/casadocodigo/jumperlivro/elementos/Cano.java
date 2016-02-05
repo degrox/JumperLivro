@@ -17,6 +17,10 @@ public class Cano {
     private Tela tela;
     private int posicao;
 
+    public void move(){
+        this.posicao-=5;
+
+    }
 
     public Cano(Tela tela,int posicao){
         this.tela = tela;
