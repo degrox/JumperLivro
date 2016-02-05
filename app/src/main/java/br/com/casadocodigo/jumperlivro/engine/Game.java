@@ -54,7 +54,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
 
 
         //inicialização do passaro.
-        this.passaro = new Passaro();
+        this.passaro = new Passaro(this.tela);
         this.canos = new Canos(this.tela);
     }
     public void run() {
@@ -70,8 +70,6 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             this.canos.desenhaNo(canvas);
             //this.cano.move();
             this.canos.move();
-
-
             this.holder.unlockCanvasAndPost(canvas);
         }
     }
