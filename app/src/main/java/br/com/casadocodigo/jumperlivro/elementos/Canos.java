@@ -12,6 +12,7 @@ import br.com.casadocodigo.jumperlivro.engine.Tela;
  * Created by Diego on 03/02/2016.
  */
 public class Canos {
+    private final Pontuacao pontuacao;
     private Tela tela;
 
     private static final int QUANTIDADE_DE_CANOS = 5;
@@ -36,8 +37,9 @@ public class Canos {
     }
 
 
-    public Canos (Tela tela){
+    public Canos (Tela tela, Pontuacao pontuacao){
         this.tela = tela;
+        this.pontuacao=  pontuacao;
         int posicao = 200;
 
         for (int i=0; i<QUANTIDADE_DE_CANOS; i++){
@@ -55,6 +57,8 @@ public class Canos {
             cano.move();
             if (cano.saiuDaTela()) {
 
+                //criação do método
+                this.pontuacao.aumenta();
                 //
                 iterator.remove();
                 Cano outroCano = new Cano(this.tela, maiorPosicao()+DISTANCIA_ENTRE_CANOS);

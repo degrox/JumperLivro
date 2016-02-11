@@ -7,6 +7,14 @@ import android.graphics.Paint;
  */
 public class Cores {
 
+
+    public static Paint getCorDaPontuacao(){
+        Paint branco = new Paint();
+        branco.setColor(0xFFFFFFFF);
+        return branco;
+
+    }
+
     public static Paint getCorPassaro(){
         Paint vermelho = new Paint();
         vermelho.setColor(0xFFFF0000);
