@@ -18,6 +18,15 @@ public class Cano {
     private Tela tela;
     private int posicao;
 
+
+    public int getPosicao(){
+        return this.posicao;
+
+    }
+    public boolean saiuDaTela(){
+        return this.posicao +LARGURA_DO_CANO < 0 ;
+    }
+
     public void move(){
         this.posicao-=5;
 
