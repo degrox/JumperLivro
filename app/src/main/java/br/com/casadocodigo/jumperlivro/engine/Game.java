@@ -81,7 +81,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             canvas.drawBitmap(this.background, 0, 0, null);
             //código de desenho do pássaro.
             this.passaro.desenhaNo(canvas);
-            this.passaro.cai();
+            this.passaro.voa();
 
             //Aqui vamos desenhas os elementos do jogo
             //this.cano.desenhaNo(canvas);

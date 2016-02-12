@@ -40,17 +40,15 @@ public class Passaro {
     public int getAltura(){
         return this.altura;
     }
-    public void cai(){
+    public void voa(){
         double tempo = this.tempo.atual();
-        double novaAltura = ((10*(tempo*tempo))/2.0);
+        double novaAltura = -DESLOCAMENTO_DO_PULO+ ((10*(tempo*tempo))/2.0);
 
         boolean chegouNoChao = this.altura + RAIO > tela.getAltura();
 
         if(!chegouNoChao){
             this.altura+=novaAltura;
-
         }
-
     }
     public void pula(){
         if(this.altura> RAIO) {
