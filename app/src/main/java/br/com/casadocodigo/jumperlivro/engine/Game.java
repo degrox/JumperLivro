@@ -72,12 +72,14 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             //código de desenho do pássaro.
             this.passaro.desenhaNo(canvas);
             this.passaro.cai();
-            this.pontuacao.desenhaNo(canvas);
+
             //Aqui vamos desenhas os elementos do jogo
             //this.cano.desenhaNo(canvas);
             this.canos.desenhaNo(canvas);
+
             //this.cano.move();
             this.canos.move();
+            this.pontuacao.desenhaNo(canvas);
             this.holder.unlockCanvasAndPost(canvas);
         }
     }

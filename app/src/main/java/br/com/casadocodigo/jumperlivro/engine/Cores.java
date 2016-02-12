@@ -1,6 +1,7 @@
 package br.com.casadocodigo.jumperlivro.engine;
 
 import android.graphics.Paint;
+import android.graphics.Typeface;
 
 /**
  * Created by Diego on 01/02/2016.
@@ -9,8 +10,14 @@ public class Cores {
 
 
     public static Paint getCorDaPontuacao(){
+        int desloSombraBaixo =5;
+        int desloSombraDireita =5;
+        int borda =3;
         Paint branco = new Paint();
         branco.setColor(0xFFFFFFFF);
+        branco.setTextSize(80);
+        branco.setTypeface(Typeface.DEFAULT_BOLD);
+        branco.setShadowLayer(borda,desloSombraBaixo,desloSombraDireita,0xFF000000);
         return branco;
 
     }
