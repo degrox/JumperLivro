@@ -3,11 +3,22 @@ package br.com.casadocodigo.jumperlivro.engine;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 
+import java.lang.reflect.Type;
+
 /**
  * Created by Diego on 01/02/2016.
  */
 public class Cores {
 
+    public static Paint getCorDoGameOver(){
+        Paint vermelho = new Paint();
+        vermelho.setColor(0xFFFF0000);
+        vermelho.setTextSize(50);
+        vermelho.setTypeface(Typeface.DEFAULT_BOLD);
+        vermelho.setShadowLayer(2,3,3,0xFF000000);
+        return vermelho;
+
+    }
 
     public static Paint getCorDaPontuacao(){
         int desloSombraBaixo =5;
